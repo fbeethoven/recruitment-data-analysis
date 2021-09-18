@@ -14,23 +14,25 @@ Expected completion time: ca 1.5 hours
 
 # Solution:
 
-We use pandas to run a KMeans clutering algorithm on Jupyter Notebooks. We clean the data and find 4 to be the number of clusters optimal according to the Elbow Methods. 
-A different approach is to use MeanShift but KMeans works well for this tasks.
+We use pandas to run a KMeans clustering algorithm on Jupyter Notebooks. We clean the data and find 4 to be the number of optimal clusters according to the Elbow Method. 
+A different approach is to use MeanShift but KMeans works well for this task.
 
 ### Conclusion
 
-Based on the Cluster Analysis we can identify two main operations based on the clusters 0 and 1
+Based on the Cluster Analysis we can identify two main operations on the clusters 0 and 1
 (elements at cluster 0 are smaller and much lighter, maybe they are marshmallows, and elements at cluster 1 are both heavier and bigger).
 
 The outliers are in clusters 2 and 3. Maybe this is due to marshmallows treated as chocolate bars (cluster 2),
 and chocolate bars treated as marshmallows (cluster 3).
 
 In September 16, all elements are in cluster 2, indicating that someone made a mistake.
-We can speculate that September 16 was going to be dedicated to producing only chocolate bars and someone thought they were going to only produce marshmallows.
+We can speculate that September 16 was going to be dedicated to producing only chocolate bars and someone thought they were going to produce only marshmallows.
 In any case all output from September 16 is compromised in some manner.
 
-We also noticed that all mistakes in September 15 were due to *machine_1*, either because is older or the people operating this machine have less experience.
-However this have nothing to do with the issue on September 16 since both machines are in cluster 2.
+We also noticed that all mistakes in September 15 were due to *machine_1*, either because is malfunctioning or because the people operating
+this machine have less experience.
+However this have nothing to do with the issue on September 16 since both machines are in cluster 2, and the outliers are not significant
+(~5.8% of the output of Sepmber 15).
 
 The model we produced allow us to improve quality in two ways:
 * Track all elements and if they are not in cluster 0 or 1 they can be classified as low quality.
